@@ -1,0 +1,24 @@
+{
+  "name": "Loan Book",
+  "short_name": "LoanBook",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "description": "Aplikasi pencatatan pinjaman sederhana",
+  "icons": [
+    {
+      "src": "https://via.placeholder.com/192/2563eb/ffffff.png?text=LB",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://via.placeholder.com/512/2563eb/ffffff.png?text=LB",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

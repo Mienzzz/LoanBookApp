@@ -1,0 +1,16 @@
+node_modules/
+dist/
+
+# Android build outputs
+android/app/build/
+android/.gradle/
+
+# IDE/editor
+.vscode/
+.idea/
+
+# Env & logs
+.env
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
