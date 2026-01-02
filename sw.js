@@ -1,8 +1,11 @@
-const CACHE_NAME = 'loan-book-cache-v2';
+const CACHE_NAME = 'loan-book-cache-v3';
 const BASE_URL = self.registration.scope.endsWith('/') ? self.registration.scope : self.registration.scope + '/';
 const ASSETS = [
   BASE_URL,
-  BASE_URL + 'index.html'
+  BASE_URL + 'index.html',
+  BASE_URL + 'manifest.webmanifest',
+  BASE_URL + 'icons/icon-192.png',
+  BASE_URL + 'icons/icon-512.png'
 ];
 
 self.addEventListener('install', (event) => {
@@ -29,7 +32,7 @@ self.addEventListener('fetch', (event) => {
         const copy = response.clone();
         caches.open(CACHE_NAME).then((cache) => cache.put(request, copy));
         return response;
-      }).catch(() => caches.match('/index.html'));
+      }).catch(() => caches.match(BASE_URL + 'index.html'));
     })
   );
 });
