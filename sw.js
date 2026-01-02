@@ -1,11 +1,15 @@
-const CACHE_NAME = 'loan-book-cache-v3';
+const CACHE_NAME = 'loan-book-cache-v4';
 const BASE_URL = self.registration.scope.endsWith('/') ? self.registration.scope : self.registration.scope + '/';
 const ASSETS = [
   BASE_URL,
   BASE_URL + 'index.html',
   BASE_URL + 'manifest.webmanifest',
   BASE_URL + 'icons/icon-192.png',
-  BASE_URL + 'icons/icon-512.png'
+  BASE_URL + 'icons/icon-256.png',
+  BASE_URL + 'icons/icon-384.png',
+  BASE_URL + 'icons/icon-512.png',
+  BASE_URL + 'icons/icon-mono-512.png',
+  BASE_URL + 'icons/icon.svg'
 ];
 
 self.addEventListener('install', (event) => {
