@@ -1,6 +1,7 @@
 {
   "name": "Loan Book",
   "short_name": "LoanBook",
+  "id": "loan-book-app",
   "start_url": ".",
   "scope": ".",
   "display": "standalone",

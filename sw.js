@@ -1,7 +1,8 @@
-const CACHE_NAME = 'loan-book-cache-v1';
+const CACHE_NAME = 'loan-book-cache-v2';
+const BASE_URL = self.registration.scope.endsWith('/') ? self.registration.scope : self.registration.scope + '/';
 const ASSETS = [
-  '/',
-  '/index.html'
+  BASE_URL,
+  BASE_URL + 'index.html'
 ];
 
 self.addEventListener('install', (event) => {
