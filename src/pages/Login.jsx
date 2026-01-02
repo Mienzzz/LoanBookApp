@@ -81,9 +81,7 @@ export function Login() {
           </button>
         </form>
         
-        <div className="text-center text-xs text-gray-400">
-          <p>Default: admin/123, user1/123, user2/123</p>
-        </div>
+        
       </div>
     </div>
   );
