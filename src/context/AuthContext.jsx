@@ -3,9 +3,9 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 const AuthContext = createContext(null);
 
 const INITIAL_USERS = [
-  { id: 'admin', username: 'admin', password: '123', name: 'Firman', role: 'admin' },
-  { id: 'user1', username: 'user1', password: '123', name: 'Tommy', role: 'user' },
-  { id: 'user2', username: 'user2', password: '123', name: 'Anggi', role: 'user' },
+  { id: 'admin', username: 'firman', password: '123', name: 'Firman', role: 'admin' },
+  { id: 'user1', username: 'tommy', password: '123', name: 'Tommy', role: 'user' },
+  { id: 'user2', username: 'anggi', password: '123', name: 'Anggi', role: 'user' },
 ];
 
 export const AuthProvider = ({ children }) => {
@@ -17,7 +17,16 @@ export const AuthProvider = ({ children }) => {
     // Load logged in user
     const storedUser = localStorage.getItem('loan_book_user');
     if (storedUser) {
-      setUser(JSON.parse(storedUser));
+      const parsed = JSON.parse(storedUser);
+      const nameMap = { admin: 'Firman', user1: 'Tommy', user2: 'Anggi' };
+      const usernameMap = { admin: 'firman', user1: 'tommy', user2: 'anggi' };
+      const normalizedUser = { 
+        ...parsed, 
+        name: nameMap[parsed.id] ?? parsed.name, 
+        username: usernameMap[parsed.id] ?? parsed.username 
+      };
+      setUser(normalizedUser);
+      localStorage.setItem('loan_book_user', JSON.stringify(normalizedUser));
     }
     
     // Load users list (for password updates)
@@ -25,7 +34,12 @@ export const AuthProvider = ({ children }) => {
     if (storedUsersList) {
       const list = JSON.parse(storedUsersList);
       const nameMap = { admin: 'Firman', user1: 'Tommy', user2: 'Anggi' };
-      const normalized = list.map(u => ({ ...u, name: nameMap[u.id] ?? u.name }));
+      const usernameMap = { admin: 'firman', user1: 'tommy', user2: 'anggi' };
+      const normalized = list.map(u => ({ 
+        ...u, 
+        name: nameMap[u.id] ?? u.name,
+        username: usernameMap[u.id] ?? u.username
+      }));
       setUsersList(normalized);
       localStorage.setItem('loan_book_users_list', JSON.stringify(normalized));
     } else {
